@@ -6,13 +6,13 @@ const authController = require('../controllers/authController')
 
 router.post('/register', authController.register)
 
-//routh country
+//routes country
 const countryController = require('../controllers/countryController')
 
 router.get('/country', countryController.shows)
 router.get('/country/:id', countryController.show)
 
-//route user
+//routes user
 const userController = require('../controllers/userController')
 
 router.get('/users', userController.shows)
