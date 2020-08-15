@@ -4,7 +4,11 @@ const {
 
 exports.shows = async (req, res) => {
     try {
-        const data = await User.findAll()
+        const data = await User.findAll({
+            attributes: {
+                exclude : ['createdAt', 'updatedAt']
+            }
+        })
 
         res.status(200).send({
             message: "response success",
@@ -27,6 +31,9 @@ exports.show = async (req, res) => {
         const data = await User.findOne({
             where: {
                 id
+            },
+            attributes: {
+                exclude : ['createdAt', 'updatedAt']
             }
         })
 
@@ -54,6 +61,9 @@ exports.destroy = async (req, res) => {
         const data = await User.destroy({
             where : {
                 id
+            },
+            attributes: {
+                exclude : ['createdAt', 'updatedAt', 'fullName', 'email', 'password', 'phone', 'address']
             }
         })
 
@@ -63,7 +73,7 @@ exports.destroy = async (req, res) => {
 
         res.status(200).send({
             message: "response success",
-            id: id
+            id
         })
     } catch (error) {
         console.log(error);

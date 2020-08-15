@@ -11,6 +11,6 @@ const userController = require('../controllers/userController')
 
 router.get('/users', userController.shows)
 router.get('/user/:id', userController.show)
-router.delete('/user/:id', userController.show)
+router.delete('/user/:id', userController.destroy)
 
 module.exports = router
