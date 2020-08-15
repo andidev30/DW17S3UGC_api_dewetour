@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-exports.cekLogin = (req, res, next) => {
+exports.cekLogin = async (req, res, next) => {
     let header, token
 
     if ( !(header = req.header("Authorization")) ||
@@ -12,7 +12,7 @@ exports.cekLogin = (req, res, next) => {
         })
 
     try {
-        const verified = jwt.verify(token, process.env.HASHPASSWORD)
+        const verified = await jwt.verify(token, process.env.HASHPASSWORD)
         req.user = verified
         next()
     } catch (err) {

@@ -82,16 +82,16 @@ exports.login = async (req, res) => {
             email,
             password
         } = req.body
-    
+
         const schema = joi.object({
             email: joi.string().email().min(7).required(),
             password: joi.string().required()
         })
-    
+
         const {
             error
         } = schema.validate(req.body)
-    
+
         if (error) return res.status(400).send({
             error: {
                 message: error.details[0].message
@@ -111,9 +111,9 @@ exports.login = async (req, res) => {
         })
 
         const checkPassword = await bycript.compare(password, checkEmail.password)
-        if(!checkPassword) return res.status(400).send({
-            error : {
-                message : "email and password don't match"
+        if (!checkPassword) return res.status(400).send({
+            error: {
+                message: "email and password don't match"
             }
         })
 

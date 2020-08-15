@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 
+//middleware login
+const authenticated = require('../middleware/authenticated');
+
 //routes auth
 const authController = require('../controllers/authController')
 
@@ -12,6 +15,9 @@ const countryController = require('../controllers/countryController')
 
 router.get('/country', countryController.shows)
 router.get('/country/:id', countryController.show)
+router.put('/country/:id', authenticated.cekLogin, countryController.update)
+router.delete('/country/:id', authenticated.cekLogin, countryController.destroy)
+router.post('/country', authenticated.cekLogin, countryController.store)
 
 //routes user
 const userController = require('../controllers/userController')

@@ -6,7 +6,7 @@ exports.shows = async (req, res) => {
     try {
         const data = await User.findAll({
             attributes: {
-                exclude : ['createdAt', 'updatedAt']
+                exclude: ['createdAt', 'updatedAt']
             }
         })
 
@@ -33,7 +33,7 @@ exports.show = async (req, res) => {
                 id
             },
             attributes: {
-                exclude : ['createdAt', 'updatedAt']
+                exclude: ['createdAt', 'updatedAt']
             }
         })
 
@@ -57,13 +57,15 @@ exports.show = async (req, res) => {
 
 exports.destroy = async (req, res) => {
     try {
-        const {id} = req.params
+        const {
+            id
+        } = req.params
         const data = await User.destroy({
-            where : {
+            where: {
                 id
             },
             attributes: {
-                exclude : ['createdAt', 'updatedAt', 'fullName', 'email', 'password', 'phone', 'address']
+                exclude: ['createdAt', 'updatedAt', 'fullName', 'email', 'password', 'phone', 'address']
             }
         })
 
