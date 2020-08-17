@@ -8,7 +8,7 @@ const joi = require('@hapi/joi');
 exports.register = async (req, res) => {
     try {
         const {
-            fullName,
+            fullname,
             email,
             password,
             phone,
@@ -16,7 +16,7 @@ exports.register = async (req, res) => {
         } = req.body
 
         const schema = joi.object({
-            fullName: joi.string().min(2).required(),
+            fullname: joi.string().min(2).required(),
             email: joi.string().email().min(7).required(),
             password: joi.string().min(8).required(),
             phone: joi.string().min(11).required(),
@@ -49,7 +49,7 @@ exports.register = async (req, res) => {
         const hashPassword = await bycript.hash(password, saltRound)
 
         const data = await User.create({
-            fullName,
+            fullname,
             email,
             password: hashPassword,
             phone,
