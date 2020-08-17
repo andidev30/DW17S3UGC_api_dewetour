@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken')
 exports.cekLogin = async (req, res, next) => {
     let header, token
 
-    if ( !(header = req.header("Authorization")) ||
-         !(token = header.replace("Bearer ", "")) )
+    if (!(header = req.header("Authorization")) ||
+        !(token = header.replace("Bearer ", "")))
         return res.status(400).send({
             error: {
                 message: "Acess Denied"

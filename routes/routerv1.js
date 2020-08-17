@@ -31,8 +31,8 @@ const tripController = require('../controllers/tripController')
 
 router.get('/trips', tripController.shows)
 router.get('/trip/:id', tripController.show)
-router.post('/trip', tripController.create)
-router.delete('/trip/:id', tripController.destroy)
-router.patch('/trip/:id', tripController.update)
+router.post('/trip', authenticated.cekLogin, tripController.create)
+router.delete('/trip/:id', authenticated.cekLogin, tripController.destroy)
+router.patch('/trip/:id', authenticated.cekLogin, tripController.update)
 
 module.exports = router
