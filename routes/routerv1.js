@@ -26,4 +26,9 @@ router.get('/users', userController.shows)
 router.get('/user/:id', userController.show)
 router.delete('/user/:id', userController.destroy)
 
+//routes trip
+const tripController = require('../controllers/tripController');
+
+router.get('/trips', tripController.shows)
+
 module.exports = router
