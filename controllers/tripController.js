@@ -68,7 +68,7 @@ exports.show = async (req, res) => {
   }
 };
 
-exports.create = async (req, res) => {
+exports.store = async (req, res) => {
   try {
     const schema = joi.object({
       title: joi.string().min(2).required(),
@@ -190,7 +190,12 @@ exports.update = async (req, res) => {
       })
     }
   } catch (error) {
-
+    res.status(500).send({
+      error: {
+        message: "Internal server error",
+        log: error.message,
+      },
+    });
   }
 }
 
