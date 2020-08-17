@@ -12,16 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
 
-<<<<<<< HEAD
-      // Trip.belongsTo(models.Country, {
-      //   as: "countryId",
-      //   foreignKey: {
-      //     name: "country_id"
-      //   }
-      // })
-
-      // Trip.hasOne(models.Country)
-=======
       // Trip.hasOne(models.Country)
 
       Trip.belongsTo(models.Country, {
@@ -30,16 +20,11 @@ module.exports = (sequelize, DataTypes) => {
           name: "countryId"
         }
       })
->>>>>>> trip
     }
   };
   Trip.init({
     title: DataTypes.STRING,
-<<<<<<< HEAD
-    country_id: DataTypes.INTEGER,
-=======
     countryId: DataTypes.INTEGER,
->>>>>>> trip
     accomodation: DataTypes.STRING,
     transportation: DataTypes.STRING,
     eat: DataTypes.STRING,
