@@ -27,8 +27,12 @@ router.get('/user/:id', userController.show)
 router.delete('/user/:id', userController.destroy)
 
 //routes trip
-const tripController = require('../controllers/tripController');
+const tripController = require('../controllers/tripController')
 
 router.get('/trips', tripController.shows)
+router.get('/trip/:id', tripController.show)
+router.post('/trip', tripController.create)
+router.delete('/trip/:id', tripController.destroy)
+router.patch('/trip/:id', tripController.update)
 
 module.exports = router
